@@ -1,0 +1,132 @@
+﻿<Window x:Class="SM_WPF_LINQ.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SM_WPF_LINQ"
+        mc:Ignorable="d"
+        Title="Quản lý nhân viên" Height="500" Width="800" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="FrameworkElement" x:Key="CommonControl">
+            <Setter Property="Margin" Value="4"/>
+        </Style>
+
+        <Style TargetType="FrameworkElement" x:Key="InputControlDesc">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="FrameworkElement" x:Key="InputControl">
+            <Setter Property="Margin" Value="0 4 4 4"/>
+        </Style>
+
+        <Style TargetType="GroupBox" x:Key="GenderContainer">
+            <Setter Property="Margin" Value="0 0 0 4"/>
+        </Style>
+
+        <Style TargetType="RadioButton" x:Key="GenderItem" BasedOn="{StaticResource CommonControl}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="640"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <GroupBox Name="grStaffInfo" Header="Thông tin nhân viên">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource InputControlDesc}" Text="Mã NV"/>
+                <TextBox Name="txtStaffId" Style="{StaticResource InputControl}" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="1" Text="Họ tên"/>
+                <TextBox Name="txtStaffName" Style="{StaticResource InputControl}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="2" Text="Ngày sinh"/>
+                <DatePicker Name="dpStaffBirthdate" Style="{StaticResource InputControl}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="3" Text="Giới tính"/>
+                <GroupBox Style="{StaticResource GenderContainer}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton Name="rdMale" Style="{StaticResource GenderItem}" Content="Nam"/>
+                        <RadioButton Name="rdFemale" Style="{StaticResource GenderItem}" Grid.Column="1" Content="Nữ"/>
+                    </Grid>
+                </GroupBox>
+
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="0" Grid.Column="4" Text="Số ĐT"/>
+                <TextBox Name="txtStaffPhone" Style="{StaticResource InputControl}" Grid.Row="0" Grid.Column="5" Grid.ColumnSpan="3"/>
+                
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="1" Grid.Column="4" Text="Hệ số lương"/>
+                <TextBox Name="txtStaffCoefSalary" Style="{StaticResource InputControl}" Grid.Row="1" Grid.Column="5" Grid.ColumnSpan="3"/>
+                
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="2" Grid.Column="4" Text="Phòng ban"/>
+                <ComboBox Name="cmbDepartments" Style="{StaticResource InputControl}" Grid.Row="2" Grid.Column="5" Grid.ColumnSpan="3"/>
+
+                <TextBlock Style="{StaticResource InputControlDesc}" Grid.Row="3" Grid.Column="4" Text="Chức vụ"/>
+                <ComboBox Name="cmbStaffRoles" Style="{StaticResource InputControl}" Grid.Row="3" Grid.Column="5" Grid.ColumnSpan="3"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Grid.RowSpan="2" Header="Chức năng">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Name="btnSaveStaff" Grid.Row="0" Style="{StaticResource CommonControl}" Content="Thêm"/>
+                <Button Name="btnUpdateStaff" Grid.Row="1" Style="{StaticResource CommonControl}" Content="Sửa"/>
+                <Button Name="btnDeleteStaff" Grid.Row="2" Style="{StaticResource CommonControl}" Content="Xoá"/>
+                <Button Name="btnStatistic" Grid.Row="3" Style="{StaticResource CommonControl}" Content="Thống kê"/>
+                <Button Name="btnRefresh" Grid.Row="4" Style="{StaticResource CommonControl}" Content="Làm mới"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="1" Header="Tìm kiếm">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Name="txtSearchTarget" Style="{StaticResource CommonControl}"/>
+                <Button Name="btnSearch" Grid.Column="1" Style="{StaticResource CommonControl}" Content="Tìm"/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Grid.Row="2" Grid.ColumnSpan="2" Header="Danh sách nhân viên">
+            <DataGrid Name="dgStaffs"/>
+        </GroupBox>
+    </Grid>
+</Window>

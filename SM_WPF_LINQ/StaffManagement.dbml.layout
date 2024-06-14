@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="StaffManagement">
+  <DataContextMoniker Name="/StaffManagementDataContext" />
+  <nestedChildShapes>
+    <classShape Id="255e0491-aeec-4205-b0f9-a0db5eaf591e" absoluteBounds="5.125, 1.375, 2, 1.3862939453125">
+      <DataClassMoniker Name="/StaffManagementDataContext/CHUCVU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="eaf0b59a-bb98-429f-8569-fdcda0984e31" absoluteBounds="5.14, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e186e4c0-0de6-4844-97c9-73642bf52455" absoluteBounds="4.5, 1.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/StaffManagementDataContext/DMPHONG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26d0f6c9-c7a6-4a6d-949e-7eeb36063a24" absoluteBounds="4.515, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ca503c1-84cf-4f0f-a5bc-b2fa813f4527" absoluteBounds="3.875, 1.875, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/StaffManagementDataContext/DSNV" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccb62530-4ef7-4781-a091-cb4dfa19046d" absoluteBounds="3.89, 2.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.125 : 2.06814697265625); (3.625 : 2.06814697265625); (3.625 : 3.04890055338542); (3.875 : 3.04890055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/StaffManagementDataContext/CHUCVU/CHUCVU_DSNV" />
+      <nodes>
+        <classShapeMoniker Id="255e0491-aeec-4205-b0f9-a0db5eaf591e" />
+        <classShapeMoniker Id="9ca503c1-84cf-4f0f-a5bc-b2fa813f4527" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.375); (5.5 : 1.125); (4.875 : 1.125); (4.875 : 1.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/StaffManagementDataContext/DMPHONG/DMPHONG_DSNV" />
+      <nodes>
+        <classShapeMoniker Id="e186e4c0-0de6-4844-97c9-73642bf52455" />
+        <classShapeMoniker Id="9ca503c1-84cf-4f0f-a5bc-b2fa813f4527" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
